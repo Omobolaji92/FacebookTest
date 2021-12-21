@@ -22,42 +22,44 @@ public class SeleniumWebSignupTest {
         driver.manage().window().maximize();
         //4. Click on signup button to open the signup page
         driver.findElement(By.xpath("/html/body/div[2]/div/a[2]")).click();
-        Thread.sleep(2000);
+        Thread.sleep(4000);
     }
 
     @Test (priority = 0)
-    public void negativeSignup() throws InterruptedException {
+    public void signup() throws InterruptedException {
         //5. Input your username on the username field
-        driver.findElement(By.xpath("//*[@id=\"user_username\"]")).sendKeys("kehinde18");
+        driver.findElement(By.xpath("//*[@id=\"user_username\"]")).sendKeys("kehinde20");
+        Thread.sleep(1000);
         //6. Input your email on the email field
-        driver.findElement(By.xpath("//*[@id=\"user_email\"]")).sendKeys("kehinde18@yopmail.com");
+        driver.findElement(By.xpath("//*[@id=\"user_email\"]")).sendKeys("kehinde20@yopmail.com");
+        Thread.sleep(1000);
         //7. Locate password field and include password
         driver.findElement(By.xpath("//*[@id=\"user_password\"]")).sendKeys("password");
+        Thread.sleep(1000);
         //8. Click on signup button
         driver.findElement(By.xpath("//*[@id=\"submit\"]")).click();
-        Thread.sleep(2000);
+        Thread.sleep(3000);
     }
 
     @Test (priority = 1)
     public void user1Item() throws InterruptedException {
         //9. Click on user1 item on the list page
         driver.findElement(By.xpath("/html/body/div[2]/div[1]/ul/div/div/li[1]/a")).click();
+        Thread.sleep(2000);
     }
 
     @Test (priority = 2)
     public void verifyItem() throws InterruptedException {
         //10. Search for an element and confirm if it is present
-        Thread.sleep(1000);
         driver.findElement(By.xpath("/html/body/div[2]/div[1]/div/div/div[1]/a")).click();
         Thread.sleep(2000);
-
         //11. Click on logout
         driver.findElement(By.xpath("//*[@id=\"bs-example-navbar-collapse-1\"]/ul/li[3]/a")).click();
         Thread.sleep(2000);
     }
 
     @AfterTest
-    public void closeBrowser(){
+    public void closeBrowser() {
         //12. Quit browser
         driver.quit();
     }
